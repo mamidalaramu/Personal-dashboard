@@ -1,1 +1,256 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Personal-Dashboard-primary: mat.define-palette(mat.$indigo-palette);
+$Personal-Dashboard-accent: mat.define-palette(
+  mat.$pink-palette,
+  A200,
+  A100,
+  A400
+);
+
+// The warn palette is optional (defaults to red).
+$Personal-Dashboard-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$Personal-Dashboard-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $Personal-Dashboard-primary,
+      accent: $Personal-Dashboard-accent,
+      warn: $Personal-Dashboard-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($Personal-Dashboard-theme);
+
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+ul {
+  list-style: none;
+}
+button,
+input,
+select {
+  margin: 0;
+}
+html {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+iframe {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+html {
+  font-family: "Inter", sans-serif;
+  overflow: auto;
+  color: #222;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1.is-bold,
+h2.is-bold {
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+  border: none;
+  padding: 3px 8px;
+  background-color: rgba(black, 0.5);
+  color: white;
+  // font-size: 18px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    background-color: rgba(black, 0.78);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+
+  &:active {
+    background-color: rgba(black, 0.85);
+  }
+}
+
+.btn__container {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+
+  &.btn-centered {
+    justify-content: center;
+  }
+
+  .align__end {
+    margin-left: auto;
+  }
+}
+
+.has-blurred-white-bg {
+  background-color: rgba(white, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.form__field {
+  margin-bottom: 5px;
+}
+
+.text__box,
+.text__area {
+  display: block;
+  font-size: 1em;
+  font-family: inherit;
+  border: 2px solid rgba(black, 0.3);
+  border-radius: 4px;
+  background-color: rgba(white, 0.9);
+  padding: 3px 7px;
+  width: 100%;
+
+  &:hover {
+    background-color: rgba(white, 0.95);
+    border-color: rgba(black, 0.42);
+  }
+
+  &:focus {
+    background: white;
+    outline: none;
+    border-color: rgba(black, 0.42);
+  }
+}
+
+.text__area {
+  resize: vertical;
+  min-height: 50px;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 50%;
+    margin: auto;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .container {
+    max-width: 50%;
+    margin: auto;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 50%;
+    margin: auto;
+  }
+  .btn {
+    padding: 3px 8px;
+    // font-size: 18px;
+  }
+}

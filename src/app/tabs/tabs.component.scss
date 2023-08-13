@@ -1,0 +1,118 @@
+.tabs {
+  display: flex;
+  gap: 8px;
+  background: rgba(white, 0.25);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blu(3px);
+  padding: 10px;
+  border-radius: 12px;
+  margin: 8px;
+  margin-top: 30px;
+}
+
+.tab-title {
+  display: flex;
+  padding: 12px;
+
+  cursor: pointer;
+
+  i {
+    color: #222;
+  }
+  transition: all 0.2s ease-out;
+}
+
+.tab.selected .tab-title {
+  transform: translateY(-50%);
+  transition-duration: 0.4s;
+  transition-timing-function: cubic-bezier(0, 0, 0, 2);
+}
+
+.tab {
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+}
+
+//Style for tab title background
+
+.tab-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  border-radius: 10px;
+  z-index: -1;
+  transition: all 0.2s;
+  opacity: 0.9;
+}
+
+.bookmarks-tab .tab-title::before {
+  background: linear-gradient(45deg, #f8b5a5, #e2d2fd);
+}
+
+.todos-tab .tab-title::before {
+  background: linear-gradient(45deg, #a2ffff, #ffbdde);
+}
+
+.notes-tab .tab-title::before {
+  background: linear-gradient(45deg, #d2d4d5, #55c9d6);
+}
+
+.tab-title:hover::before {
+  transform: scale(1.12);
+  opacity: 1;
+}
+
+.tab.selected .tab-title::before {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(black, 0.3);
+  border-radius: 50%;
+}
+
+// END of tab title background
+
+//underline effect
+
+.tab::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  width: 50%;
+  margin: auto;
+  background-color: rgba(white, 0.6);
+  transition: all 0.2s;
+
+  //on hide
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.tab.selected::after {
+  opacity: 1;
+  transform: scaleX(1);
+  transition-delay: 0.2s;
+}
+
+.tab.selected {
+  outline: none;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

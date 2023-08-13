@@ -1,0 +1,33 @@
+<div class="add__note-wrapper container has-blurred-white-bg">
+  <h2 class="is-bold">New Note</h2>
+  <form #form="ngForm" ngNativeValidate (ngSubmit)="onFormsSubmit(form)">
+    <div class="form__field">
+      <input
+        class="text__box"
+        id="text_field"
+        ngModel
+        #titleField="ngModel"
+        name="title"
+        type="text"
+        placeholder="Enter note Title"
+        required
+        minlength="3"
+      />
+      <!-- <ng-container *ngIf="titleField.invalid">
+        <p *ngIf="titleField.errors; required">Please enter a note title</p>
+      </ng-container> -->
+    </div>
+    <div class="form__field">
+      <textarea
+        class="text__area"
+        ngModel
+        name="content"
+        placeholder="Enter notes"
+      ></textarea>
+      <div class="btn__container">
+        <a routerLink="../" class="btn">Cancel</a>
+        <button type="submit" class="btn align__end">Create Note</button>
+      </div>
+    </div>
+  </form>
+</div>

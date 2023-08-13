@@ -1,0 +1,16 @@
+<div class="todo__item" [class.completed]="todo.completed">
+  <div class="check__box">
+    <!-- check -->
+    <mat-icon class="check-icon"><!-- check-btn --></mat-icon>
+  </div>
+  <p class="todo__text">{{ todo.text }}</p>
+
+  <div class="todo__item-actions" (click)="$event.stopPropagation()" >
+    <div class="btn todo__item-action-btn" (click)="onEditClick()" >
+      <mat-icon class="edit-icon">edit</mat-icon>
+    </div>
+    <div class="btn todo__item-action-btn" (click)="onDeleteClick()" >
+      <mat-icon class="delete-icon">delete</mat-icon>
+    </div>
+  </div>
+</div>

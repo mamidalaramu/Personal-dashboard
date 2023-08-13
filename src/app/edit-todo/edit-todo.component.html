@@ -1,0 +1,30 @@
+<div class="edit__todo-wrapper container has-blurred-white-bg">
+  <h2 class="is-bold">Edit Todo</h2>
+  <p *ngIf="!todo">Note not found</p>
+  <form #form="ngForm" ngNativeValidate (ngSubmit)="onFormsSubmit(form)" *ngIf="todo">
+    <div class="form__field">
+      <input
+        class="text__box"
+        id="text_field"
+        [ngModel]="todo.text"
+        #textField="ngModel"
+        name="text"
+        type="text"
+        placeholder="Enter todo text"
+        required
+        minlength="3"
+      />
+      <!-- <ng-container *ngIf="textField.invalid">
+        <p *ngIf="textField.errors; required">
+          Please enter some text for this note
+        </p>
+      </ng-container> -->
+    </div>
+    <div class="btn__container">
+      <a routerLink="../" class="btn">Cancel</a>
+      <button type="submit" class="btn align__end mat-button color">
+        Save
+      </button>
+    </div>
+  </form>
+</div>

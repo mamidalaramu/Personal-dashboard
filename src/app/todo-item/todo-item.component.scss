@@ -1,0 +1,104 @@
+.todo__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: rgba(black, 0.5);
+  border-radius: 25px;
+  padding: 8px 12px;
+
+  cursor: pointer;
+}
+
+.todo__text {
+  color: rgba(white, 0.8);
+}
+
+.check__box {
+  display: flex;
+  // padding: 4px;
+  border: 2px solid rgba(white, 0.35);
+  border-radius: 50%;
+  margin-right: 15px;
+
+  i {
+    font-size: 18px;
+    opacity: 0;
+  }
+}
+
+.todo__item:hover {
+  .todo__text {
+    color: rgba(white, 0.95);
+  }
+  .check__box {
+    background: transparent;
+    background-color: rgba(white, 0.35);
+  }
+}
+
+.todo__item.completed {
+  .todo__text {
+    color: rgba(white, 0.8);
+  }
+  .check__box {
+    background-color: transparent;
+    background: rgb(9, 218, 89);
+
+    i {
+      opacity: 3;
+    }
+  }
+}
+
+.todo__text,
+.check__box {
+  transition: 0.2s;
+}
+
+.todo__item-action-btn .delete-icon,
+.edit-icon {
+  font-size: 23px;
+}
+
+.todo__item-actions {
+  position: absolute;
+  right: 10px;
+  background: rgba(72, 72, 82, 0.6);
+  backdrop-filter: blur(2px);
+  box-sizing: 0px 4px 12px rgba(black, 0.2);
+  border-radius: 20px;
+  transition: 0.2s;
+
+  //hide by default
+
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+}
+.todo__item-action-btn {
+  background: transparent;
+  border-radius: inherit;
+
+  &:hover {
+    background: rgb(39, 39, 42);
+  }
+}
+
+.todo__item:hover .todo__item-actions {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.2s;
+  transform: scale(1);
+}
+
+//Medium devices (landscape tablets, 768px and up)
+@media only screen and (min-width: 768px) {
+}
+
+//Large devices (laptops/desktops, 992px and up)
+@media only screen and (min-width: 992px) {
+}
+
+// Extra large devices (large laptops and desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {
+}

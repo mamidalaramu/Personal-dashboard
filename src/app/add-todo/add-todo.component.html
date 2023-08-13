@@ -1,0 +1,27 @@
+<div class="add__todo-wrapper container has-blurred-white-bg">
+  <h2 class="is-bold">Add Todo</h2>
+  <form #form="ngForm" ngNativeValidate (ngSubmit)="onFormsSubmit(form)">
+    <div class="form__field">
+      <input
+        class="text__box"
+        id="text_field"
+        ngModel
+        #textField="ngModel"
+        name="text"
+        type="text"
+        placeholder="Enter todo text"
+        required
+        minlength="3"
+      />
+      <!-- <ng-container *ngIf="textField.invalid">
+        <p *ngIf="textField.errors; required">Please enter some text for this note</p>
+      </ng-container> -->
+    </div>
+    <div class="btn__container">
+      <a routerLink="../" class="btn">Cancel</a>
+      <button type="submit" class="btn align__end mat-button color">
+        Save
+      </button>
+    </div>
+  </form>
+</div>

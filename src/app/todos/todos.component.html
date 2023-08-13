@@ -1,0 +1,15 @@
+<div class="todos__wrapper">
+  <div class="container">
+    <app-todo-item 
+    @todoItemAnimation
+    *ngFor="let todo of todos" [todo]="todo" (click)="toggleCompleted(todo)" 
+    (editClick)="onEditClick(todo)"
+    (deleteClick)="onDeleteClick(todo)"
+    ></app-todo-item>
+    <div class="btn__container btn-centered">
+      <a routerLink="add" class="btn add__btn">
+        <i class="material-icons">add</i>Add
+      </a>
+    </div>
+  </div>
+</div>
