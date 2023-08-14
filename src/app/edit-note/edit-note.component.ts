@@ -8,6 +8,7 @@ import {
 import { NoteService } from '../shared/note.service';
 import { NgForm } from '@angular/forms';
 import { Note } from '../shared/note.model';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
   selector: 'app-edit-note',
@@ -19,7 +20,8 @@ export class EditNoteComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private noteService: NoteService,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -34,12 +36,14 @@ export class EditNoteComponent implements OnInit {
     const id = this.note ? this.note.id : '';
     this.noteService.updateNote(id, form.value);
     this.router.navigateByUrl('/notes');
+    this.notificationService.show('Note updated!');
     console.log(form.value);
-    console.log(this.note)
+    console.log(this.note);
   }
 
   deleteNote() {
     this.noteService.deleteNote(this.note.id);
     this.router.navigateByUrl('/notes');
+    this.notificationService.show('Note deleted');
   }
 }
