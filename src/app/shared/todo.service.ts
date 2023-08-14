@@ -60,7 +60,7 @@ export class TodoService implements OnDestroy {
   loadState() {
     try {
       const todosInStorage = JSON.parse(localStorage.getItem('todos')!);
-      // if (!todosInStorage) return;
+      if (!todosInStorage) return;
       this.todos.length = 0; // clear the todos reference
       this.todos.push(...todosInStorage);
     } catch (e) {
