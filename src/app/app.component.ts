@@ -123,11 +123,32 @@ import { RouterOutlet } from '@angular/router';
   ],
 })
 export class AppComponent {
+  backgroundImage: string[] = [
+    'https://plus.unsplash.com/premium_photo-1689801528526-3cf45eb30172?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MjAxNjQzMQ&ixlib=rb-4.0.3&q=80&w=1920',
+  ];
+  loadingBgImage: boolean;
+
   prepareRoute(outlet: RouterOutlet) {
     let outletLink;
     if (outlet.isActivated) {
       outletLink = outlet.activatedRouteData['tab'];
     }
     return outletLink;
+  }
+
+  async changeBgImage(): Promise<any> {
+    this.loadingBgImage = true;
+    const result = await fetch('https://source.unsplash.com/random/1920x1080', {
+      method: 'HEAD',
+    });
+    const currentImage = this.backgroundImage.includes(result.url);
+    if (currentImage) {
+      return this.changeBgImage();
+    }
+    this.backgroundImage.push(result.url);
+  }
+
+  onBgImageLoad() {
+    this.loadingBgImage = false;
   }
 }

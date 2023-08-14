@@ -1,4 +1,9 @@
 <div class="app__wrapper">
+  <img [src]="bg" class="bg-img" alt="" *ngFor="let bg of backgroundImage" (load)="onBgImageLoad()" />
+
+  <div class="btn change__bg-wall" (click)="changeBgImage()" *ngIf="!loadingBgImage">
+    <mat-icon> refresh </mat-icon>
+  </div>
   <div class="top__section">
     <h1>19:00</h1>
     <h2>1 Jan 2023</h2>
