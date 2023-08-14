@@ -120,6 +120,35 @@ import { RouterOutlet } from '@angular/router';
         ]),
       ]),
     ]),
+    trigger('bgAnimation', [
+      transition(':leave', [
+        animate(
+          1000,
+          style({
+            opacity: 0,
+          })
+        ),
+      ]),
+    ]),
+    trigger('fadeAnimation', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate(
+          250,
+          style({
+            opacity: 1,
+          })
+        ),
+      ]),
+      transition(':leave', [
+        animate(
+          250,
+          style({
+            opacity: 0,
+          })
+        ),
+      ]),
+    ]),
   ],
 })
 export class AppComponent {
@@ -148,7 +177,11 @@ export class AppComponent {
     this.backgroundImage.push(result.url);
   }
 
-  onBgImageLoad() {
+  onBgImageLoad(imgEvent: Event) {
+    //remove old BG Image from backgound
+    const imgElement = imgEvent.target as HTMLImageElement;
+    const src = imgElement.src;
+    this.backgroundImage = this.backgroundImage.filter((b) => b === src);
     this.loadingBgImage = false;
   }
 }
