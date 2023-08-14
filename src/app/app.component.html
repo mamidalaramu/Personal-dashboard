@@ -1,7 +1,19 @@
 <div class="app__wrapper">
-  <img [src]="bg" class="bg-img" alt="" *ngFor="let bg of backgroundImage" (load)="onBgImageLoad()" />
+  <img
+    [src]="bg"
+    class="bg-img"
+    alt="U/A"
+    *ngFor="let bg of backgroundImage.reverse()"
+    (load)="onBgImageLoad($event)"
+    @bgAnimation
+  />
 
-  <div class="btn change__bg-wall" (click)="changeBgImage()" *ngIf="!loadingBgImage">
+  <div
+    class="btn change__bg-wall"
+    (click)="changeBgImage()"
+    *ngIf="!loadingBgImage"
+    @fadeAnimation
+  >
     <mat-icon> refresh </mat-icon>
   </div>
   <div class="top__section">
