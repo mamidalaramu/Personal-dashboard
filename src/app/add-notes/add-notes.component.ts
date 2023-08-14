@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Note } from '../shared/note.model';
 import { NoteService } from '../shared/note.service';
 import { Router } from '@angular/router';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
   selector: 'app-add-notes',
@@ -11,7 +12,11 @@ import { Router } from '@angular/router';
 })
 export class AddNotesComponent {
   showValidationErrors!: boolean;
-  constructor(private noteService: NoteService, private router: Router) {}
+  constructor(
+    private noteService: NoteService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {}
   ngOnInit(): void {}
 
   onFormsSubmit(form: NgForm) {
@@ -21,5 +26,6 @@ export class AddNotesComponent {
 
     this.noteService.addNote(note);
     this.router.navigateByUrl('/notes');
+    this.notificationService.show('Created note!');
   }
 }

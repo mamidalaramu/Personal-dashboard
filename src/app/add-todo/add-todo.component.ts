@@ -3,6 +3,7 @@ import { TodoService } from '../shared/todo.service';
 import { NgForm } from '@angular/forms';
 import { Todo } from '../shared/todo.model';
 import { Router } from '@angular/router';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
   selector: 'app-add-todo',
@@ -11,7 +12,11 @@ import { Router } from '@angular/router';
 })
 export class AddTodoComponent {
   showValidationErrors!: boolean;
-  constructor(private todoService: TodoService, private router: Router) {}
+  constructor(
+    private todoService: TodoService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -22,5 +27,6 @@ export class AddTodoComponent {
 
     this.todoService.addTodo(todo);
     this.router.navigateByUrl('/todos');
+    this.notificationService.show('Todo created!');
   }
 }
