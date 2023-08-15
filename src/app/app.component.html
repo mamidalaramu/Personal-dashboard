@@ -17,8 +17,8 @@
     <mat-icon> refresh </mat-icon>
   </div>
   <div class="top__section">
-    <h1>19:00</h1>
-    <h2>1 Jan 2023</h2>
+    <h1>{{ dateTime | async | date : "HH:mm" }}</h1>
+    <h2>{{ dateTime | async | date : "d MMMM y" }}</h2>
   </div>
 
   <div class="content__section" [@routeAnimation]="prepareRoute(outlet)">
