@@ -8,8 +8,10 @@ import {
   group,
 } from '@angular/animations';
 import { HttpBackend } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Observable, timer } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const baseStyles = style({
   position: 'absolute',
@@ -215,7 +217,7 @@ const baseStyles = style({
     ]),
   ],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   backgroundImage: string[] = [
     'https://plus.unsplash.com/premium_photo-1689801528526-3cf45eb30172?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MjAxNjQzMQ&ixlib=rb-4.0.3&q=80&w=1920',
   ];
@@ -247,5 +249,14 @@ export class AppComponent {
     const src = imgElement.src;
     this.backgroundImage = this.backgroundImage.filter((b) => b === src);
     this.loadingBgImage = false;
+  }
+
+  dateTime: Observable<Date>;
+  ngOnInit(): void {
+    this.dateTime = timer(0, 1000).pipe(
+      map(() => {
+        return new Date();
+      })
+    );
   }
 }

@@ -1,4 +1,4 @@
-<div class="bookmark__title">
+<a [href]="bookmark.url" target="_blank" class="bookmark__title">
   <div class="tile__icon" *ngIf="!faviconError">
     <img [src]="titleIconSrc" alt="" (error)="faviconError = true" />
   </div>
@@ -6,4 +6,4 @@
     {{ bookmark.name.toUpperCase()[0] }}
   </div>
   <p class="title__text">{{ bookmark.name }}</p>
-</div>
+</a>
