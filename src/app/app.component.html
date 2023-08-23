@@ -1,4 +1,4 @@
-<div class="app__wrapper">
+<div class="app__wrapper main">
   <img
     [src]="bg"
     class="bg-img"
@@ -15,6 +15,9 @@
     @fadeAnimation
   >
     <mat-icon> refresh </mat-icon>
+  </div>
+  <div class="btn return__home" (click)="returnHome()">
+    <mat-icon>home</mat-icon>
   </div>
   <div class="top__section">
     <h1>{{ dateTime | async | date : "HH:mm" }}</h1>
