@@ -66,6 +66,24 @@
   }
 }
 
+.return__home {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  padding: 1px;
+  background: rgba(black, 0.1);
+  color: rgba(white, 0.7);
+
+  &:hover {
+    background: rgba(black, 0.3);
+    color: white;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
 //Medium devices (landscape tablets, 768px and up)
 @media only screen and (min-width: 768px) {
   .top__section {
@@ -84,6 +102,22 @@
 @media only screen and (min-width: 1200px) {
   .top__section {
     padding: 30px 0;
+  }
+}
+
+@media (min-width: 610px) {
+  main {
+    width: 530px;
+  }
+}
+@media (min-width: 866px) {
+  main {
+    width: 786px;
+  }
+}
+@media (min-width: 1122px) {
+  main {
+    width: 1042px;
   }
 }
 
