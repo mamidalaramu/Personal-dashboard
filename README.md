@@ -21,28 +21,18 @@ This is a simple personal dashboard application built using Angular. The dashboa
 
 1. Clone the repository to your local machine.
 
-   `````git clone https://github.com/mamidalaramu/Personal-dashboard.git
-   ````cd personal-dashboard
-
-   `````
+   `git clone https://github.com/mamidalaramu/Personal-dashboard.git`
+   `cd personal-dashboard`
 
 2. Install dependencies using npm or yarn.
 
-   ````npm install
-
-   ```
-
-   ```
-
-   ````
+   `npm install`
 
 3. Start the development server.
 
-   ```ng serve
+   `ng serve`
 
-   ```
-
-4. Open your browser and visit http://localhost:4200 to view the dashboard.
+4. Open your browser and visit <http://localhost:4200> to view the dashboard.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
