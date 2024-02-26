@@ -1,5 +1,49 @@
 # PersonalDashboard
 
+This is a simple personal dashboard application built using Angular. The dashboard provides features like managing todos, bookmarking webpages, and taking notes. Additionally, it displays the current time and allows users to refresh the wallpaper.
+
+## Features
+
+- **Todo Management**: Organize your tasks with a simple todo list.
+- **Bookmarking**: Save important webpages for easy access.
+- **Notes**: Take quick notes and keep track of important information.
+- **Clock**: Display the current time.
+- **Wallpaper Refresh**: Refresh the wallpaper for a new look.
+
+## Technologies Used
+
+- Angular: A popular front-end framework for building single-page applications.
+- TypeScript: A superset of JavaScript that adds static typing and other features to the language.
+- SCSS: A CSS preprocessor that adds features like variables, mixins, and nesting.
+- HTML: The standard markup language for creating web pages.
+
+## Usage
+
+1. Clone the repository to your local machine.
+
+   `````git clone https://github.com/mamidalaramu/Personal-dashboard.git
+   ````cd personal-dashboard
+
+   `````
+
+2. Install dependencies using npm or yarn.
+
+   ````npm install
+
+   ```
+
+   ```
+
+   ````
+
+3. Start the development server.
+
+   ```ng serve
+
+   ```
+
+4. Open your browser and visit http://localhost:4200 to view the dashboard.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
 ## Development server
